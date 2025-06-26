@@ -63,9 +63,8 @@ jobs:
 
       - name: Show OIDC Token
         run: |
-            echo "${{ env.ACTIONS_ID_TOKEN_REQUEST_TOKEN }}" | base64 --decode | jq .
-        env:
-          ACTIONS_ID_TOKEN_REQUEST_TOKEN: ${{ secrets.ACTIONS_ID_TOKEN_REQUEST_TOKEN }}
+            echo "ID Token claims:"
+            az rest --method POST --uri "https://token.actions.githubusercontent.com/.well-known/openid-configuration" || echo "Unable to fetch"
       - name: Login to Azure
         uses: azure/login@v2
         with:
