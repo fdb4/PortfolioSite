@@ -70,6 +70,8 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6ECDC81B003B43CDB03B97FEBD55F751 }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_A07C2E3ED15540E4A2BE235011C74D80 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_7339251F77DC4C50BFAD66580CE61C8E }}
+          enable-AzPSSession: false
+          allow-no-subscriptions: true
         env:
           ACTIONS_STEP_DEBUG: true
 
