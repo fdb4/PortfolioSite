@@ -61,7 +61,11 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
-      
+      - name: Show OIDC Token
+        run: |
+            echo "${{ env.ACTIONS_ID_TOKEN_REQUEST_TOKEN }}" | base64 --decode | jq .
+        env:
+          ACTIONS_ID_TOKEN_REQUEST_TOKEN: ${{ secrets.ACTIONS_ID_TOKEN_REQUEST_TOKEN }}
       - name: Login to Azure
         uses: azure/login@v2
         with:
